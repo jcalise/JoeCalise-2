@@ -10,7 +10,6 @@ def index():
         session['count'] += 1
     except:
         session['count'] = 1
-
     return render_template("index.html")
 
 @app.route('/plus2')
