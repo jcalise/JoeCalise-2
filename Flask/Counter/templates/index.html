@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Counter</title>
+    <style media="screen">
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      .box {
+        width: 400px;
+        margin: 0px auto;
+        padding: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Counter</h1>
+      <p>{{session['count']}} times</p>
+      <p><a href="/plus2">Add 2</a></p>
+      <p><a href="/reset">Reset</a></p>
+    </div>
+
+  </body>
+</html>
