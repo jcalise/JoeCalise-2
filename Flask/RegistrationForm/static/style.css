@@ -1,0 +1,38 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  width: 600px;
+  margin: 0px auto;
+}
+ul {
+  margin: 10px 0 10px 40px;
+}
+p {
+  margin: 5px;
+}
+form {
+  margin: 10px;
+}
+input[type=submit] {
+  background-color: #D4AF37;
+  border: none;
+  color: black;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+input {
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 16px;
+}
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}
