@@ -41,8 +41,6 @@ def process_money():
             session['gold'] -= g
             activities.append("You went to the " + building + " and lost " + str(g) + "! Ouch. :(")
 
-
-
     session['activities'] = activities
 
     return redirect('/')
