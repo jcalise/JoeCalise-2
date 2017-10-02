@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall Login/Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Welcome to THE WALL, {{ user['first_name']}} <a href="/clear">Log Out</a></h1>
+            <hr />
+            <form action='/message' method='POST'>
+                <label for="message">Post a Message <textarea rows="4" cols="50" name="message" id="message"></textarea></label>
+                <input type="hidden" name="id" value="{{ user['id'] }}">
+                <input type="submit" value="Post Message">
+            </form>
+
+            {% for post in posts %}
+                <div class="message">
+                    <p class="data">{{post['first_name']}} {{post['last_name']}} - Posted: {{post['created_at'].strftime('%b %d, %Y @ %H:%M') }}</p>
+                    <p class="post">{{post['message']}}</p>
+                </div>
+                <form class="comment-form" action="/post_comment/{{post.id}}" method="post">
+                    <label for="comment">Post a comment on {{post.first_name}}'s message<textarea rows="2" cols="50" name="comment" id="comment"></textarea></label>
+                    <input type="submit" value="Add comment">
+                </form>
+                {% for comment in comments %}
+                {% if comment.message_id == post.id %}
+                <div class="comment">
+                        <p class="data">{{comment.first_name}} {{comment.last_name}} commented - {{comment.created_at.strftime('%b %d, %Y @ %H:%M')}}</p>
+                        <p class="post">{{comment.comment}}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div> <!-- end container -->
+    
+</body>
+</html>
