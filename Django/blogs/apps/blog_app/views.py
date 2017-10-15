@@ -22,5 +22,6 @@ def edit(request, blog):
     response = "Placeholder to edit blog " + blog
     return HttpResponse(response)
 
+
 def destroy(request, blog):
     return redirect('/')
