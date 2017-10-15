@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    margin: 0px auto;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+}
+.title {
+    border: 1px solid black;
+    width: 400px;
+    height: 50px;
+    font-size: 24px;
+}
+.time {
+    border: 1px solid black;
+    width: 600px;
+    height: 200px;
+    font-size: 72px;
+}
