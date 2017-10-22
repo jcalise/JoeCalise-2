@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    margin: 0px auto;
+    width: 600px;
+    height: 400px;
+    
+}
+table, tr {
+    width: 100%;
+}
+input {
+    display: block;
+}
