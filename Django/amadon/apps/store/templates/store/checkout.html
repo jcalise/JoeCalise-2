@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'store/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <title>Amadon</title>
+    <h1>Thank you for your business!</h1>
+    {% if request.session.last_transaction %}
+    <h3>We charged your credit card ${{ request.session.last_transaction }}</h3>
+    {% else %}
+    <h3>Go buy more stuff!</h3>
+    {% endif %}
+    <p>You have ordered {{ request.session.total_items }} item(s) and spent ${{ request.session.total_charged }} with Amadon.com!</p>
+    <a href="/">Go back</a>
+    
+</head>
+<body>
+    
+</body>
+</html>

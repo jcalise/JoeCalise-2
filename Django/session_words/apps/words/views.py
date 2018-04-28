@@ -5,38 +5,34 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 
 def index(request):
-    return render(request,'words/index.html')
+    return render(request, "words/index.html")
 
-def process(request):
-    if request.method == "POST":
-        if 'words' not in request.session:
-            request.session['words'] = []
+def add_word(request):
+    new_word = {}
+    for key, value in request.POST.iteritems():
+        if key != "csrfmiddlewaretoken" and key != "show-big":
+            new_word[key] = value
+        if key == "show-big":
+            new_word['big'] = "big"
+        else:
+            new_word['big'] = ""
+    new_word['created_at'] = datetime.now().strftime("%H:%M %p, %B %d, %Y")
+    try:
+        request.session['words']
+    except KeyError:
+        request.session['words'] = []
 
-        try:
-            size = request.POST['big']
-        except:
-            size = ""
+    temp_list = request.session['words']
+    temp_list.append(new_word)
+    request.session['words'] = temp_list
+    for key, val in request.session.__dict__.iteritems():
+        print key, val
+    print "past craeted at", new_word
 
-        newWord = {
-            'word': request.POST['word'],
-            'color': request.POST['color'],
-            'size': size,
-            'time': datetime.now().strftime("%m/%d/%y @ %I:%M")
-        }
-        
-        old = request.session['words']
-        old.append(newWord)
-        
-        request.session['words'] = old
-        
-        return redirect("/results")
-    else:
-        return redirect("/")
-
-def results(request):
-    return render(request, 'words/results.html')
+    return redirect('/')
 
 def clear(request):
-    del request.session['words']
+    for key in request.session.keys():
+        del request.session[key]
     return redirect('/')
 
