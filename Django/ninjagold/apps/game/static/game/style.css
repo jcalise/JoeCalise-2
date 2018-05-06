@@ -1,0 +1,40 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  .container {
+    width: 900px;
+    margin: 0px auto;
+  }
+  
+  .formBox {
+    width: 195px;
+    height: 200px;
+    margin: 10px 5px 10px 0;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 9px;
+    text-align: center;
+  }
+  .formBox p {
+    margin: 20px 0;
+  }
+  .formBox input[type=submit] {
+    background-color: #D4AF37;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+  }
+  
+  .activityBox {
+    width: 865px;
+    margin: 10px 0;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
